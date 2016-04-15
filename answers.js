@@ -80,3 +80,25 @@ function countVowels (str) {
 }
 
 console.log(countVowels("allo"));
+
+/* Exercise 6: a function called highLow that takes an array of numbers, 
+and returns an object with a property highest containing the highest number, 
+and a property lowest containing the lowest number, 
+using Array.prototype.reduce.
+*/
+
+function highLow (arr) {
+    return arr.reduce(function(accumulator, currentValue){
+        if (accumulator.highest < currentValue){
+            accumulator.highest = currentValue;
+        }
+ 
+        if (accumulator.lowest > currentValue){
+            accumulator.lowest = currentValue;
+        }
+        return accumulator;
+        
+    }, {highest: -Infinity, lowest: Infinity});
+}
+
+console.log(highLow([-100, 76, -55, 0, 34, 23, 1]));
