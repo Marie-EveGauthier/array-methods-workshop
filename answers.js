@@ -64,3 +64,19 @@ function longestWord(str){
 
 console.log(longestWord("Javasript est un outil merveilleux."));
 
+/*Exercise 5: A function called countVowels that takes a string and returns the number of vowels in the string. 
+You should use Array.prototype.reduce to do your work.
+*/
+
+function countVowels (str) {
+    var arrOfLetters = str.split("");
+    var arrOfVowels = ["a", "e", "i", "o", "u", "y"];
+    return arrOfLetters.reduce(function(accumulator, currentValue){
+        if(arrOfVowels.indexOf(currentValue) !== -1){
+            accumulator += 1;
+        }
+        return accumulator;
+    }, 0);
+}
+
+console.log(countVowels("allo"));
