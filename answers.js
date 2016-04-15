@@ -13,3 +13,18 @@ function printPositives(arr) {
 }
 
 printPositives([-2, 2, 3, 4, -5, 0, -10]);
+
+
+/*Exercise 2: A function called getPositives that takes an array 
+and uses its filter method to return a new array with only the positive numbers
+*/
+
+function getPositives(arr) {
+    arr.filter(function(element){
+        if(element > 0){
+            return element;
+        }
+    });
+}
+
+getPositives([-2, 2, 3, 4, -5, 0, -10]);
