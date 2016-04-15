@@ -102,3 +102,31 @@ function highLow (arr) {
 }
 
 console.log(highLow([-100, 76, -55, 0, 34, 23, 1]));
+
+/* Exercise 7: a function called highLowTwo that takes an array of numbers, 
+and returns the higest, second highest, lowest, and second lowest numbers.
+*/
+function highLowTwo (arr) {
+    return arr.reduce(function(accumulator, currentValue) {
+        if (accumulator.secondHighest < currentValue) {
+            if (accumulator.highest < currentValue) {
+                accumulator.highest = currentValue;
+            }
+            else {
+                accumulator.secondHighest = currentValue;
+            }
+        }
+        if (accumulator.secondLowest > currentValue) {
+            if (accumulator.lowest > currentValue) {
+                accumulator.lowest = currentValue;
+            }
+            else {
+               accumulator.secondLowest = currentValue; 
+            }
+        }
+        return accumulator;
+        
+    }, {highest: -Infinity, secondHighest: -Infinity,  lowest: Infinity, secondLowest: Infinity });
+}
+
+console.log(highLowTwo([-100, 76, -55, 76, 34, 23, 1]));
