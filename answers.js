@@ -130,3 +130,33 @@ function highLowTwo (arr) {
 }
 
 console.log(highLowTwo([-100, 76, -55, 76, 34, 23, 1]));
+
+/* Exercise 8: Write a function called countChars that takes a string, 
+and returns an object where the keys are letters, and the value is the number of times that letter appears.
+*/
+
+function countChars(str) {
+//Transform the string in a array of unique letters    
+    var arrOfLetters = str.replace(/\s/gi, "").toLowerCase().split("");
+    var arrOfUniqueLetter = []; 
+    arrOfLetters.forEach(function(letter) {
+        if (arrOfUniqueLetter.indexOf(letter) === -1) {
+           arrOfUniqueLetter.push(letter);
+        }
+    });
+//Reduce the new arrOfUniqueLetter into an object where the keys are the letter and the value is the number of times that letter appears
+    var initialValue = {};
+    var reducer = function (accumulator, uniqueLetter) {
+        if(!accumulator[uniqueLetter]) {
+            accumulator[uniqueLetter] = 1;
+        }
+        else {
+            accumulator[uniqueLetter] += 1;
+        }
+        return accumulator;
+    };
+    var result = arrOfLetters.reduce(reducer, initialValue);
+    return result;
+}
+
+console.log(countChars("Javasript est merveilleux"));
