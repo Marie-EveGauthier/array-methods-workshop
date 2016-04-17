@@ -160,3 +160,41 @@ function countChars(str) {
 }
 
 console.log(countChars("Javasript est merveilleux"));
+
+
+
+
+// Exercise 9 : a function called peopleById that takes an array of people and returns an object where each person is keyed by their unique ID.
+
+function peopleById (arrOfPeople) {
+    var initialValue = {};
+    var reducer = function(accumulator, person) {
+        var id = person["id"];
+        accumulator[id] = person;
+        return accumulator;
+    };
+
+var result = arrOfPeople.reduce(reducer, initialValue);
+return result;
+}
+
+console.log(peopleById([
+  {
+    "id": "KeXoYg92is",
+    "firstName": "John",
+    "lastName": "Smith",
+    "email": "john@smith.com"
+  },
+  {
+    "id": "NkALmSWtUp",
+    "firstName": "Donald",
+    "lastName": "Duck",
+    "email": "don@disney.com"
+  },
+  {
+    "id": "m7LPbJYSUg",
+    "firstName": "John",
+    "lastName": "Vader",
+    "email": "vader@darkside.com"
+  }
+]));
