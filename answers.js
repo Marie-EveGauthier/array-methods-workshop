@@ -206,11 +206,9 @@ function peopleByFirstName (arrOfPeople) {
     var reducer = function(accumulator, person) {
         if(!accumulator[person.firstName]) {
             accumulator[person.firstName] = [];
-            accumulator[person.firstName].push(person);    
         }
-        else {
-            accumulator[person.firstName] = accumulator[person.firstName].push(person); 
-        }
+        
+        accumulator[person.firstName].push(person);    
         return accumulator;
     };
     return arrOfPeople.reduce(reducer, initialValue);
