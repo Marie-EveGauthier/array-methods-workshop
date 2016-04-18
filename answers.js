@@ -198,3 +198,42 @@ console.log(peopleById([
     "email": "vader@darkside.com"
   }
 ]));
+
+//
+
+function peopleByFirstName (arrOfPeople) {
+    var initialValue = {};
+    var reducer = function(accumulator, person) {
+        if(!accumulator[person.firstName]) {
+            accumulator[person.firstName] = [];
+            accumulator[person.firstName].push(person);    
+        }
+        else {
+            accumulator[person.firstName] = accumulator[person.firstName].push(person); 
+        }
+        return accumulator;
+    };
+    return arrOfPeople.reduce(reducer, initialValue);
+    
+}
+
+console.log(peopleByFirstName([
+  {
+    "id": "KeXoYg92is",
+    "firstName": "John",
+    "lastName": "Smith",
+    "email": "john@smith.com"
+  },
+  {
+    "id": "NkALmSWtUp",
+    "firstName": "Donald",
+    "lastName": "Duck",
+    "email": "don@disney.com"
+  },
+  {
+    "id": "m7LPbJYSUg",
+    "firstName": "John",
+    "lastName": "Vader",
+    "email": "vader@darkside.com"
+  }
+]));
